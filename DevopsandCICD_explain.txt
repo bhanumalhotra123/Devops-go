@@ -1,0 +1,78 @@
+Example:
+
+Frontend -----> API on backend(Live production server)
+
+If now this production server is slow or goes down it affects the business.
+
+Want to add some features? Developer writes buggy code? production goes down!
+
+What if something in code is causing latency in our api?
+
+It is just tip of ice-berg!!!
+
+
+
+Earlier:
+
+Dev Team: Writing the code (more complex, will discover later)
+                               No Communication
+Ops Team: Deploy applications to different environments, monitoring the application, configuring and maintaing infra, etc.
+
+
+Ops digs into erros wastes time ---> get to know error in code ---> meeting ---> more time ---> unefficient
+
+
+Devops combine both development and operations activities to create more efficient and streamlined product and service delivery process.
+
+
+How are these combined?
+
+members from both teams merged into single team, this may differ organisation to organisation.
+
+
+Lifecycle:
+
+Plan: architecture, tech to be used
+Development
+Build and test
+Release
+Deploy
+Monitoring
+
+Things happen in parallel
+
+Some new feature is in Plan
+some feature engineers are working on
+some is on build stage
+some is on monitoring and back to planing for changes 
+
+
+
+Continuous Integration
+Continuous Delivery
+Automation
+
+
+Continuous Integration: 
+Engineers making changes to code and trying to push to production? Broken code --> breaks the production
+
+Devops Tools to build and test before moving to production
+
+We test things alot of times
+
+Time and manpower goes up?  Nope! We do automation!
+
+Build successful? push to production
+Build failed? Engineer works again
+
+
+
+Continuous Delivery:
+It depends on CI 
+It is not Continuous Deployment(automates deployment to production)
+
+A engineer wants to merge their code with production code in CI process?
+
+Now their code merged with production code is handed over to continous delivery process and this process automates things like deploying this code to test environments, more tests, deploying to production like environments and marking the code ready for release.
+
+Continuous Delivery doesn't automate deployment to production, there will likely be a final approval phase
