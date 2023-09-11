@@ -1,0 +1,19 @@
+Code Editor installation:
+
+https://code.visualstudio.com/
+
+
+Need to configure this to work well with golang
+
+Download golang:
+
+https://go.dev/
+
+go version  (test if properly installed)
+
+Install extension go in vscode
+
+
+now create a file main.go and install the  extensions it asks for.
+
+
