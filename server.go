@@ -38,7 +38,6 @@ func main() {
 
 // The "handleHelloWorld" function handles requests to the "/hello-world" endpoint.
 func handleHelloWorld(writer http.ResponseWriter, request *http.Request) {
-	// This function is currently empty and doesn't do anything.
 	// It's a placeholder for handling the "/hello-world" endpoint.
 	if request.Method != "GET" {
 		http.Error(writer, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
@@ -50,7 +49,6 @@ func handleHelloWorld(writer http.ResponseWriter, request *http.Request) {
 
 // The "handleHealth" function handles requests to the "/health" endpoint.
 func handleHealth(writer http.ResponseWriter, request *http.Request) {
-	// This function is also currently empty and doesn't do anything.
 	// It's a placeholder for handling the "/health" endpoint.
 	if request.Method != "GET" {
 		http.Error(writer, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
