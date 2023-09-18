@@ -1,3 +1,90 @@
 Adding tests
 
 We will use http package to test
+server_test.go
+
+1. create a test server
+2. make this test server handle get requests using handleHelloWorld function
+3. create a test client
+4. send GET request to test server using test client
+
+
+
+PS C:\Users\HP\Desktop\Devopsusingo\api_service> go mod init github.com/bhanumalhotra123/Devops-using-go
+go: creating new go.mod: module github.com/bhanumalhotra123/Devops-using-go
+go: to add module requirements and sums:
+        go mod tidy
+PS C:\Users\HP\Desktop\Devopsusingo\api_service> ls
+
+
+    Directory: C:\Users\HP\Desktop\Devopsusingo\api_service
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        18-09-2023     19:47             62 go.mod
+-a----        18-09-2023     17:17           2192 server.go
+-a----        18-09-2023     19:32           1017 server_test.go
+
+
+PS C:\Users\HP\Desktop\Devopsusingo\api_service> go mod tidy
+PS C:\Users\HP\Desktop\Devopsusingo\api_service> ls
+
+
+    Directory: C:\Users\HP\Desktop\Devopsusingo\api_service
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        18-09-2023     19:47             62 go.mod
+-a----        18-09-2023     17:17           2192 server.go
+-a----        18-09-2023     19:32           1017 server_test.go
+
+
+PS C:\Users\HP\Desktop\Devopsusingo\api_service>
+
+
+
+now we created two cases using 2 functions 1 with get request which we expected to give us 200 and it passed
+
+similarly Post request which should give 405 as post was not allowed in hello world function we created,this also passed the test.
+Running tool: C:\Program Files\Go\bin\go.exe test -timeout 30s -run ^TestHelloWorldFailure$ github.com/bhanumalhotra123/Devops-using-go
+
+=== RUN   TestHelloWorldFailure
+http://127.0.0.1:58539
+--- PASS: TestHelloWorldFailure (0.00s)
+PASS
+ok      github.com/bhanumalhotra123/Devops-using-go     0.244s
+
+
+Same we did for health route
+
+
+Running tool: C:\Program Files\Go\bin\go.exe test -timeout 30s -run ^TestHealthSuccess$ github.com/bhanumalhotra123/Devops-using-go
+
+=== RUN   TestHealthSuccess
+http://127.0.0.1:58608
+--- PASS: TestHealthSuccess (0.00s)
+PASS
+ok      github.com/bhanumalhotra123/Devops-using-go     0.257s
+
+
+
+
+
+PS C:\Users\HP\Desktop\Devopsusingo\api_service> go test -v
+=== RUN   TestHelloWorldSuccess
+http://127.0.0.1:58763
+--- PASS: TestHelloWorldSuccess (0.00s)
+=== RUN   TestHelloWorldFailure
+http://127.0.0.1:58765
+--- PASS: TestHelloWorldFailure (0.00s)
+=== RUN   TestHealthSuccess
+http://127.0.0.1:58767
+--- PASS: TestHealthSuccess (0.00s)
+=== RUN   TestHealthFail
+http://127.0.0.1:58769
+--- PASS: TestHealthFail (0.00s)
+PASS
+ok      github.com/bhanumalhotra123/Devops-using-go     0.245s
+PS C:\Users\HP\Desktop\Devopsusingo\api_service> 
