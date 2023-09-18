@@ -11,7 +11,6 @@ import (
 	"net/http"
 )
 
-// The main function is the entry point of our program.
 func main() {
 	// We set up routes (endpoints) for our API.
 	// These routes map to specific functions that handle HTTP requests.
@@ -46,12 +45,7 @@ func handleHelloWorld(writer http.ResponseWriter, request *http.Request) {
 
 	}
 
-	response := []byte("Hello World!!")
-	_, err := writer.Write(response)
-	if err != nil {
-		fmt.Println(err)
-	}
-
+	writeResponse(writer, "Hello-World")
 }
 
 // The "handleHealth" function handles requests to the "/health" endpoint.
@@ -61,6 +55,17 @@ func handleHealth(writer http.ResponseWriter, request *http.Request) {
 	if request.Method != "GET" {
 		http.Error(writer, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
 
+	}
+
+	writeResponse(writer, "OK")
+
+}
+
+func writeResponse(writer http.ResponseWriter, responseString string) {
+	response := []byte(responseString)
+	_, err := writer.Write(response)
+	if err != nil {
+		fmt.Println(err)
 	}
 
 }
