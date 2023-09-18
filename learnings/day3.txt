@@ -45,3 +45,6 @@ Now again a pull request and add we can add a reviewer
 
 
 
+git branch -d feature_add_new_endpoint (for deleting branch from local)
+
+
