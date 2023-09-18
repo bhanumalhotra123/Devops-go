@@ -81,18 +81,52 @@ https://www.charset.org/utf-8
 
 
 
+Now we want to get some response back for our requests 
 
 
 
+// The "handleHelloWorld" function handles requests to the "/hello-world" endpoint.
+func handleHelloWorld(writer http.ResponseWriter, request *http.Request) {
+	// This function is currently empty and doesn't do anything.
+	// It's a placeholder for handling the "/hello-world" endpoint.
+	if request.Method != "GET" {                                         //we are only allowing GET method
+		http.Error(writer, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
+
+	}
+
+	response := []byte("Hello World!!")
+	_, err := writer.Write(response)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+}
 
 
+Now to make our work easy we created a common function to send the response:
 
+func writeResponse(writer http.ResponseWriter, responseString string) {
+	response := []byte(responseString)
+	_, err := writer.Write(response)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+}
 
 
 
 HP@bhanumalhotra MINGW64 ~/Desktop/Devopsusingo (main)
-$ curl -i  http://localhost:8000/hello-world
-
+$ curl -i  http://localhost:8000/health
 HTTP/1.1 200 OK
-Date: Mon, 11 Sep 2023 11:21:02 GMT
-Content-Length: 0
+Date: Mon, 18 Sep 2023 11:42:46 GMT
+Content-Length: 2
+Content-Type: text/plain; charset=utf-8
+
+OK
+HP@bhanumalhotra MINGW64 ~/Desktop/Devopsusingo (main)
+$ curl -i  http://localhost:8000/hello-world
+HTTP/1.1 200 OK
+Date: Mon, 18 Sep 2023 11:42:50 GMT
+Content-Length: 11
+Content-Type: text/plain; charset=utf-

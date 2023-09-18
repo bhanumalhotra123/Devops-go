@@ -1,0 +1,47 @@
+Git and Github
+https://github.com/signup
+
+create a repository
+
+do git init in your local
+git status
+git add (whatever you want to stage)
+git commit -m"the_message"
+git remote add origin http.//github.........url to the repository on github
+git push origin main(or the branch you want to push)
+git config --global credential.helper store (try pushing after running this command, it will ask you for username and token)
+Once you enter your creds it will be saved in ~/.git-credentials
+
+
+
+Now assume two engineers e1 and e2
+
+e1 
+git pull (we are on replica of main branch right now)
+git branch feature_add_new_endpoint
+git checkout feature_add_new_endpoint
+we make changes to the code of server.go
+git diff
+git add server.go
+git  commit -m"new endpoint added"
+we are still in feature branch
+git push origin feature_add_new_endpoint  (this will create a new branch in remote)
+
+Now main branch doesn't have new endpoint but feature_add_new_endpoint have the new endpoint code 
+
+Pull request 
+base: main compare: feature_add_new_endpoint
+Merged! Now main branch also have new endpoint code.
+
+Now Engineer e2
+clone the same repository
+will make some changes in server.go
+git branch feature_add_print_statement
+add a new print statement
+git add server.go
+git commit -m"added print statement"
+git push origin feature_add_print_statement
+Now again a pull request and add we can add a reviewer
+
+
+
