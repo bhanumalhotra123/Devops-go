@@ -1,0 +1,7 @@
+First we did pulumi up and brought our ec2 instance on which we will run jenkins
+
+and then:
+
+ ssh -i ~/Desktop/Devopsusingo/src/infra/.ssh/rsa ec2-user@ec2-34-227-73-228.compute-1.amazonaws.com
+
+https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/
