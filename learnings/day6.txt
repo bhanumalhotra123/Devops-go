@@ -1,0 +1,84 @@
+Infrastructure as code
+
+If we build the Infrastructure manualy that is by using GUI we won't  be any history of our infra so we can't roll back.
+
+
+Say whenever there is a pull request we want to build, test and deploy the code on our staging environment.
+
+Now let us say our staging env is on ec2
+
+We can add a script to the pipeline so that when it reaches to the deploy stage it creates the ec2 for staging environment.
+
+So a git repository will help, we can make changes to the scripts and have control on it.
+
+Instead of using GUI, we will write the go code for our infrastructure.
+
+We will use Pulumi
+
+Pulumi is a multi-language infrastructure as code (IaC) tool that allows you to define and manage cloud infrastructure using several programming languages. 
+Pulumi supports languages like Python, TypeScript, JavaScript, Go, and .NET/C#.
+
+Installed pulumi: https://www.pulumi.com/docs/clouds/aws/get-started/begin/
+and exported access and secret access key for aws user.
+
+pulumi new aws-go
+for crating a new pulumi project
+
+Whatever resources we build it has to be placed under pulumi.run 
+
+First we created sg and rules for it, then a ssh key
+
+here we need to understand how ssh keys works.
+
+We have 2 keys public and private in our local, we give the public key which can only be used for encryption to the server.
+Now anything we get from the server with encryption using public key we can decrypt it using our private key.
+
+
+$ pulumi up
+Previewing update (prod)
+
+View in Browser (Ctrl+O): https://app.pulumi.com/bhanumalhotra123/go_infra/prod/previews/da1f1910-7bba-493d-b5ac-8097df8bea28        
+
+     Type                      Name            Plan       Info
+ +   pulumi:pulumi:Stack       go_infra-prod   create     2 messages
+ +   ├─ aws:ec2:KeyPair        local-ssh       create
+ +   ├─ aws:ec2:SecurityGroup  jenkins-sg      create
+ +   └─ aws:ec2:Instance       jenkins-server  create
+
+Diagnostics:
+  pulumi:pulumi:Stack (go_infra-prod):
+    {0xc0000e6540}
+    {0xc0000e64d0}
+
+Outputs:
+    publicHostName: output<string>
+    publicIp      : output<string>
+
+Resources:
+    + 4 to create
+
+Do you want to perform this update? yes
+Updating (prod)
+
+View in Browser (Ctrl+O): https://app.pulumi.com/bhanumalhotra123/go_infra/prod/updates/1
+      Info
+ +   pulumi:pulumi:Stack       go_infra-prod   created (49s)     2 messages
+ +   ├─ aws:ec2:KeyPair        local-ssh       created (2s)
+
+ +   ├─ aws:ec2:SecurityGroup  jenkins-sg      created (6s)
+
+ +   └─ aws:ec2:Instance       jenkins-server  created (36s)
+
+Diagnostics:
+  pulumi:pulumi:Stack (go_infra-prod):
+    {0xc0000e7340}
+    {0xc0000e72d0}
+
+Outputs:
+    + 4 created
+
+Duration: 1m7s
+
+
+
+
