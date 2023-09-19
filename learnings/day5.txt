@@ -1,0 +1,24 @@
+What is Jenkins?
+
+Automation server
+
+Github Server                           Jenkins servers
+Code gets pushed    Trigger ---->         Continous Delivery Pipeline (To staging environment)
+                                        Build test deploy
+                                         Merge the code with main if TestHealthSuccess
+code merged?
+
+Releaseto production ! On the time we want
+
+Once it is in production --> We hit the operation phase in devops cycle where users are using the application.(Can handle scaling?)
+
+Then monitoring(performance, transactions,load, average errs etc)
+
+
+Again planning phase as per data insights we get from monitoring.
+
+Then coding > Building > Test > Release > Deploy  > Operate > Monitoring.
+
+(all the steps in devops cycle are happening simultaneously)
+
+
