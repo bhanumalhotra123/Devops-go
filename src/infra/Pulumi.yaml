@@ -1,3 +1,0 @@
-name: go_infra
-runtime: go
-description: infra code to create aws resources writen in go
