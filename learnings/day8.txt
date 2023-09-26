@@ -1,0 +1,23 @@
+Continous Integration
+
+We have our api code and we are coninously planning and adding code to it.
+
+We may have multiple developers working on the code and regulary merge code into the main branch.
+
+Now different engineers maybe working on different features but maybe making changes to same part of the code which may cause conflicts.
+
+We want to find bugs and conflicts quicker to make the code better.
+
+And once the changes are pushed to central repo, we work to resolve the conflicts.
+
+Assume developers kept on working for long in isolation and then merged there will be alot of conflicts.
+
+But if it is quicker we will be able to solve conflicts faster as well and bugs also don't pile up.
+
+No accumulation of bugs and conflicts!!
+
+
+
+Jenkins Pipeline:
+
+Build(No compilation errors) --- Test (no breaking in code) ---- Deploy
